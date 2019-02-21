@@ -14,9 +14,16 @@ if __name__ == '__main__':
 
     # overview of data
     print("dimensions: {}".format(data.shape))
+    # display first few rows
+    print(data.head())
 
     # calculate correlation for nonzero values
     x = data.ix[:,1]
     y = data.ix[:,2]
     result = mf.nz_corr(x, y)
+    print("nonzero corr: {}".format(result))
+
+    x = data.ix[:,2]
+    y = data.ix[:,3]
+    result = mf.nz_corr(x,y)
     print("nonzero corr: {}".format(result))

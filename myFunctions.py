@@ -21,7 +21,7 @@ def nz_corr(x, y, digits=4):
         result = round(result, digits)
     return result
 
-def pearson_cor (x, y):
+def pearson_cor (x, y, digits=6):
     '''This function calculates Pearson correlation between vector x and y.
         It returns nan if x or y has 2 data points or less, or if either of them does not vary
         
@@ -34,9 +34,19 @@ def pearson_cor (x, y):
         -----------
         Pearson correlation or nan
         '''
-    if (len(x) > 2) and (x.std() > 0) and (y.std() > 0):
+    print("x:\n")
+    print(x.head())
+    print("\ny:\n")
+    print(y)
+    print("x.std: {}".format(x.std()))
+    print("y.std: {}".format(y.std()))
+    print("y.mean: {}".format(y.mean()))
+
+    if (len(x) > 2) and (round(x.std(), digits) > 0) and (round(y.std(), digits) > 0):
+        print("defined")
         corr = pearsonr(x, y)[0]
     else:
+        print("undefined")
         corr = np.nan
     
     return corr
