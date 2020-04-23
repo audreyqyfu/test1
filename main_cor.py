@@ -43,3 +43,8 @@ if __name__ == '__main__':
     y = data.iloc[:,3]
     result = mf.nz_corr(x,y)
     print("nonzero corr: {}".format(result))
+
+    x = data.iloc[:,3]
+    y = data.iloc[:,4]
+    result = mf.nz_corr(x,y)
+    print("nonzero corr: {}".format(result))

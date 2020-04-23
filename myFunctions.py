@@ -15,8 +15,16 @@ def nz_corr(x, y, digits=4):
         -----------
         Pearson correlation or nan
         '''
+    # reset 0 as NA in x and y   
     nas = np.logical_or(x == 0, y == 0)
+    
+    # calculate Pearson correlation
+    # using function pearson_cor below
+    # NAs are ignored
     result = pearson_cor(x[~nas], y[~nas])
+    
+    # round the result to a desirable number of digits
+    # or return nan
     if not math.isnan(result):
         result = round(result, digits)
     return result
@@ -37,16 +45,19 @@ def pearson_cor (x, y, digits=6):
     print("x:\n")
     print(x.head())
     print("\ny:\n")
-    print(y)
+    print(y.head())
     print("x.std: {}".format(x.std()))
     print("y.std: {}".format(y.std()))
+    print("x.mean: {}".format(x.mean()))
     print("y.mean: {}".format(y.mean()))
 
-    if (len(x) > 2) and (round(x.std(), digits) > 0) and (round(y.std(), digits) > 0):
-        print("defined")
-        corr = pearsonr(x, y)[0]
-    else:
-        print("undefined")
-        corr = np.nan
+    corr = pearsonr(x,y)[0]
+
+#    if (len(x) > 2) and (round(x.std(), digits) > 0) and (round(y.std(), digits) > 0):
+#        print("defined")
+#        corr = pearsonr(x, y)[0]
+#    else:
+#        print("undefined")
+#        corr = np.nan
     
     return corr
