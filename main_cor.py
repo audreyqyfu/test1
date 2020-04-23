@@ -1,16 +1,31 @@
 # -*- coding: utf-8 -*-
 '''
     A demo of calling functions in another local file.
+    Usage: calculating correlations.  The general syntax is:
     
-'''
+        $ python main_cor.py <xx.csv>
+    
+    '''
 
 import sys
 import myFunctions as mf
 import pandas as pd
+import argparse
 
 if __name__ == '__main__':
+    
+    path = sys.argv[1]
+    print(path)
+    
+    data = pd.read_csv(path)
+    
     # read data
-    data = pd.read_csv("data.csv")
+#    parser = argparse.ArgumentParser(description = 'Help information')
+#    parser.add_argument('-infile', help='path to input csv file')
+#    data = pd.read_csv("data.csv")
+
+#    infile = parse_args("-infile")
+#    print(infile)
 
     # overview of data
     print("dimensions: {}".format(data.shape))
@@ -18,12 +33,12 @@ if __name__ == '__main__':
     print(data.head())
 
     # calculate correlation for nonzero values
-    x = data.ix[:,1]
-    y = data.ix[:,2]
+    x = data.iloc[:,1]
+    y = data.iloc[:,2]
     result = mf.nz_corr(x, y)
     print("nonzero corr: {}".format(result))
 
-    x = data.ix[:,2]
-    y = data.ix[:,3]
+    x = data.iloc[:,2]
+    y = data.iloc[:,3]
     result = mf.nz_corr(x,y)
     print("nonzero corr: {}".format(result))
