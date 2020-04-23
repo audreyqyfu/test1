@@ -25,6 +25,9 @@ if __name__ == '__main__':
     # display first few rows
     print(data.head())
 
+    # add comments
+
+
     # calculate correlation for nonzero values
     # in two vectors
     x = data.iloc[:,1]
