@@ -10,19 +10,20 @@
 import sys
 import myFunctions as mf
 import pandas as pd
-import argparse
+#import argparse
 
 if __name__ == '__main__':
-    
+
+    # read path to file    
     path = sys.argv[1]
     print(path)
     
+    # read data
     data = pd.read_csv(path)
     
     # read data
 #    parser = argparse.ArgumentParser(description = 'Help information')
 #    parser.add_argument('-infile', help='path to input csv file')
-#    data = pd.read_csv("data.csv")
 
 #    infile = parse_args("-infile")
 #    print(infile)
