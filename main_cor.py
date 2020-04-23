@@ -10,7 +10,6 @@
 import sys
 import myFunctions as mf
 import pandas as pd
-#import argparse
 
 if __name__ == '__main__':
 
@@ -21,19 +20,13 @@ if __name__ == '__main__':
     # read data
     data = pd.read_csv(path)
     
-    # read data
-#    parser = argparse.ArgumentParser(description = 'Help information')
-#    parser.add_argument('-infile', help='path to input csv file')
-
-#    infile = parse_args("-infile")
-#    print(infile)
-
     # overview of data
     print("dimensions: {}".format(data.shape))
     # display first few rows
     print(data.head())
 
     # calculate correlation for nonzero values
+    # in two vectors
     x = data.iloc[:,1]
     y = data.iloc[:,2]
     result = mf.nz_corr(x, y)
