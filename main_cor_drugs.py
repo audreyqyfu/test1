@@ -22,6 +22,8 @@ if __name__ == '__main__':
     # read data
     data = pd.read_table(path, index_col=0)
     
+    pd.options.display.max_rows = 20
+    
     # overview of data
     print("dimensions: {}".format(data.shape))
     # display first few rows
@@ -35,10 +37,11 @@ if __name__ == '__main__':
     
     # use our own function
     print ("Using our own correlation function:")
-    x = data.iloc[range(5),1]
-    y = data.iloc[range(5),2]
+    x = data.iloc[:,1]
+    y = data.iloc[:,2]
+    print ("x is:")
     print (x)
-    print (y)
+#    print (y)
     
 #    print (pearsonr(x,y))
     

@@ -18,6 +18,10 @@ def pearson_cor (x, y):
     # mark the pair (x,y)
     # as long as one of the two values is NA
     nonas = np.logical_and(~np.isnan(x), ~np.isnan(y))
+    print (np.isnan(x))
+    print (np.isnan(y))
+    print (~np.isnan(x))
+    print (~np.isnan(y))
     print (nonas)
     
     # calculate Pearson correlation
